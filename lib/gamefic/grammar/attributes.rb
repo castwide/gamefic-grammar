@@ -44,6 +44,18 @@ module Gamefic
         plural? ? plural_text : singular_text
       end
 
+      # Select a phrase based on the entity's pronoun.
+      #
+      # @example
+      #   entity.genderize('is', they: 'are')
+      #
+      # @param default [String]
+      # @param opts [Hash]
+      # @return [String]
+      def genderize default, **opts
+        opts[subjective.to_sym] || default
+      end
+
       def objective
         Pronoun.objective self
       end
