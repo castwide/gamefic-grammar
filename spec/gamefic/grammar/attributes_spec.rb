@@ -20,17 +20,17 @@ RSpec.describe Gamefic::Grammar::Attributes do
     end
   end
 
-  describe '#genderize' do
+  describe '#otherize' do
     it 'selects the default phrase' do
       object.gender = :male
-      pronoun = object.genderize('is', they: 'are')
-      expect(pronoun).to eq('is')
+      verb = object.otherize('is', they: 'are')
+      expect(verb).to eq('is')
     end
 
     it 'selects another phrase' do
       object.gender = :other
-      pronoun = object.genderize('is', they: 'are')
-      expect(pronoun).to eq('are')
+      verb = object.otherize('is', they: 'are')
+      expect(verb).to eq('are')
     end
   end
 end
